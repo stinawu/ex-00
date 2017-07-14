@@ -1,0 +1,29 @@
+body{
+    color: #75c9d8;
+    
+}
+
+
+pre{
+    font-size: 1.2em;
+    
+}
+h2{
+    color: black;
+    font-size: 1.5em;
+    
+}
+td{
+    background: rgb(149, 148, 144);
+    font-size: 1.3em;
+    font-weight: 400;
+}
+.major{
+    background: #2f738d;
+    color:white;
+    
+}
+#taipei{
+    
+    background: rgb(12, 84, 145);
+}
