@@ -1,0 +1,16 @@
+html{
+    background-color: #d4d4d4;
+    
+}
+h1,
+h2 {
+    color: coral;
+
+}
+
+p{
+    font-size: 5em;
+    border: 1px dashed rgb(253, 125, 57);
+    color: #524b4b;
+    font-family: serif;
+}
