@@ -1,29 +1,16 @@
-body{
-    color: #75c9d8;
+html{
+    background-color: #d4d4d4;
     
+}
+h1,
+h2 {
+    color: coral;
+
 }
 
-
-pre{
-    font-size: 1.2em;
-    
-}
-h2{
-    color: black;
-    font-size: 1.5em;
-    
-}
-td{
-    background: rgb(149, 148, 144);
-    font-size: 1.3em;
-    font-weight: 400;
-}
-.major{
-    background: #2f738d;
-    color:white;
-    
-}
-#taipei{
-    
-    background: rgb(12, 84, 145);
+p{
+    font-size: 5em;
+    border: 1px dashed rgb(253, 125, 57);
+    color: #524b4b;
+    font-family: serif;
 }
