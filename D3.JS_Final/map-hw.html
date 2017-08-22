@@ -1,0 +1,80 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>D3.JS_Final</title>
+    <script src="https://d3js.org/d3.v3.js"></script>
+<!--    <script src="topojson.min.js"></script>-->
+       <link rel="stylesheet" href="main.css">
+
+    <style>
+        .map-boundary {
+          stroke: #eee;
+        }
+    </style>
+</head>
+<body>
+   <h1>Taiwan流浪貓狗分佈</h1>
+   <p>主要想以色塊區分出各縣市流浪貓狗分布狀況<br>並標示出品種、顏色的資料</p>
+   
+    <svg width="1200" height="700"></svg>
+    
+    <script>
+        
+        d3.json("world_geo.json", function(mapDataSet) {
+       
+                
+            bind(mapDataSet);
+            render();      
+
+        });     
+        
+        function bind(geoRoot){
+            
+            var projection = d3.geo.mercator().center([121,24]).scale(4000);    
+            
+            var path = d3.geo.path().projection(projection);
+
+            var selection = d3.select("svg").selectAll("path").data(geoRoot.features);
+              
+            selection.enter().append("path").classed("map-boundary", true).attr("d", path);
+
+            
+            d3.selectAll("path")
+            .attr({
+                fill: "rgb(143, 147, 142)"
+            })
+                .on("click", function(d){
+                var coordinates = d3.mouse(this);
+                var x = coordinates[0];
+                var y = coordinates[1];
+                
+                var tooltip = d3.select("#tooltip")
+                .style({
+                    left:(x+10)+"px",
+                    top:(y+10)+"px"
+                })
+                tooltip.select("#city").text(d.properties.C_Name);
+            })
+                .on("mouseover", function(d){
+                d3.select(this).attr({
+                    fill: "rgb(101, 189, 244)"
+                })
+            })
+            .on("mouseout", function(d){
+                d3.select(this)
+                .attr({
+                    fill: "#184cc3"
+                })
+            });
+        }
+        
+        
+    
+    </script>
+    
+    
+    
+
+</body>
+</html>
